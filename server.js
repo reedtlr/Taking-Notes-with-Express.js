@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 8080;
 // add data parsing to Express
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'));
 
 let jsonData = {}
 fs.readFile('db/db.json', 'utf-8', (err, data) => {
