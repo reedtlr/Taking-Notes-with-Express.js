@@ -44,12 +44,12 @@ app.post('/api/notes', function(req, res) {
 });
 
 app.delete('/api/notes/:id', function(req, res) {
-    let removeUser = req.body.id;
+    let removeNote = req.body.id;
     console.log(req.body, "left is req body", req.body.id, "left of this is req body id")
     let data = fs.readFileSync('db/db.json');
     let json = JSON.parse(data);
     let id = json.id;
-    json.id = id.filter((id) => { return id.id !== removeUser });
+    json.id = id.filter((id) => { return id.id !== removeNote });
     fs.writeFileSync('results.json', JSON.stringify(json, null, 2));
 })
 
